@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  get   "/sign-up",                 to: "users#index",      as: :sign_up
+  get   "/sign-up",                 to: "users#index",        as: :sign_up
   post  "/users",                   to: "users#create"
 
-  get   "/",                        to: "photos#index",     as: :home
+  get   "/log-in",                  to: "sessions#login"
+  post  "/sign-in",                 to: "sessions#sign_in",   as: :sign_in
+
+  get   "/",                        to: "photos#index",       as: :home
+  post  "/new-photo",               to: "photos#new",         as: :new_photo
+  get   "/add-photo",               to: "photos#add_a_photo", as: :add_a_photo
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
