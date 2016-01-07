@@ -1,4 +1,6 @@
-<%= form_for @photo do |f| %>
+<div class="form">
+  <h1>Submit Photo for Rating</h1>
+
   <% if @photo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
@@ -11,15 +13,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :photo_url %><br>
-    <%= f.file_field :photo_url %>
+  <%= form_tag "/new-photo", method: "POST", class: "form" do %>
+  <div class="field-wrap">
+    <%= file_field_tag "photo[photo_url]" %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+  <div class="field-wrap">
+    <label>Description (optional)</label>
+    <%= text_area_tag "photo[description]" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <%= submit_tag "Upload", class:"button button-block"%>
+  <% end %>
+</div>

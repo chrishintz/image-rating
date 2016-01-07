@@ -1,4 +1,4 @@
-body {
+.header-body {
   font-size: 80%;
   font-family: "Courier New", Courier, monospace;
   letter-spacing: 0.15em;
@@ -19,7 +19,7 @@ body {
   margin: 10px auto 25px auto;
 }
 
-ul {
+.unordered-list-header {
   width: 570px;
   padding: 15px;
   margin: 0px auto 0px auto;
@@ -28,19 +28,19 @@ ul {
   text-align: center;
 }
 
-li{
+.list-header{
   display: inline;
   margin: 0;
 }
 
-p {
+.front-page-paragraph {
   text-align: center;
   width: 600px;
   margin: 20px auto;
   font-weight: normal;
 }
 
-a {
+.anchor-header {
   color: #000000;
   text-transform: uppercase;
   text-decoration: none;

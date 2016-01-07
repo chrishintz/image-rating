@@ -6,17 +6,17 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="header-body">
 
   <div id="page">
     <div id="logo">
       <%= image_tag "keyboard_keys.jpg" %>
     </div>
-    <ul =id="navigation">
-      <li><a href="/" class="on">Home</a></li>
-      <li><a href="#">Random Photo</a></li>
-      <li><a href="/add-photo">Add Photo</a></li>
-      <li><a href="/sign-up">Sign-Up/In</a></li>
+    <ul id="navigation" class="unordered-list-header" >
+      <li class="list-header"><a href="/" class="on">Home</a></li>
+      <li class="list-header"><a href="#" class="anchor-header">Random Photo</a></li>
+      <li class="list-header"><a href="/add-photo" class="anchor-header">Add Photo</a></li>
+      <li class="list-header"><a href="/sign-up" class="anchor-header">Sign-Up/In</a></li>
     </ul>
 
 <%= yield %>
