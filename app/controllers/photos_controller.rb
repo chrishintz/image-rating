@@ -5,17 +5,22 @@ class PhotosController < ApplicationController
   end
 
   def add_a_photo
-    @photo = Photo.new(photo_params)
+    @photo = Photo.new
   end
 
   def new
-    @photo = Photo.new
+    @photo = Photo.new(photo_params)
+    if @photo.save
+      redirect_to home_path
+    else
+      render "add_a_photo"
+    end
   end
 
 private
 
   def photo_params
-    params.require(:photo).permit(:photo_url, :description, :user_id)
+    params.require(:photo).permit(:user_id, :photo_url, :description)
   end
 
 end

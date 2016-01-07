@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post  "/sign-in",                 to: "sessions#sign_in",   as: :sign_in
 
   get   "/",                        to: "photos#index",       as: :home
-  post  "/new-photo",               to: "photos#new",         as: :new_photo
+  post  "/new-photo",               to: "photos#new",         as: :photos
   get   "/add-photo",               to: "photos#add_a_photo", as: :add_a_photo
 
 
