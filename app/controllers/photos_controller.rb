@@ -12,10 +12,14 @@ class PhotosController < ApplicationController
   def new
     @photo = Photo.new(photo_params)
     if @photo.save
-      redirect_to home_path
+      redirect_to show_photos_path
     else
       render "add_a_photo"
     end
+  end
+
+  def show
+    @photos = Photo.all
   end
 
 private

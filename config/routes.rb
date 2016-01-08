@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get   "/",                        to: "photos#index",       as: :home
   post  "/new-photo",               to: "photos#new",         as: :photos
   get   "/add-photo",               to: "photos#add_a_photo", as: :add_a_photo
+  get   "/photos",                  to: "photos#show",        as: :show_photos
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,6 +1,30 @@
-<div class="form">
-  <h1>Submit Photo for Rating</h1>
+<!--
+  <% if @photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
 
+      <ul>
+      <% @photo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form_tag "/new-photo", method: "POST", class: "form" do %>
+  <div class="field-wrap">
+    <%= file_field_tag "photo[photo_url]" %>
+  </div>
+  <div class="field-wrap">
+    <label>Description (optional)</label>
+    <%= text_area_tag "photo[description]" %>
+  </div>
+  <%= submit_tag "Upload", class:"button button-block"%>
+  <% end %>
+</div> -->
+
+<div class="form">
+  <h1 class="h1-form">Submit Photo for Rating</h1>
+<%= form_for @photo do |f| %>
   <% if @photo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
@@ -12,14 +36,14 @@
     </div>
   <% end %>
 
-  <%= form_tag "/new-photo", method: "POST", class: "form" do %>
   <div class="field-wrap">
-    <%= file_field_tag "photo[photo_url]" %>
+    <label><%= f.file_field :photo_url %></label>
   </div>
   <div class="field-wrap">
-    <!-- <label>Description (optional)</label> -->
-    <%= text_area_tag 'description', nil, placeholder: 'Description (optional)' %>
+    <label><%= f.text_area :description, placeholder:"Description" %></label>
   </div>
-  <%= submit_tag "Upload", class:"button button-block"%>
-  <% end %>
+  <div>
+    <%= f.submit "Upload", class:"button button-block"%>
+  </div>
+<% end %>
 </div>
