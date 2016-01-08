@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to home_path, notice: "Welcome, thanks for signing up!"
     else
+      flash.now.alert = "Username or Email is already taken"
       render "index"
     end
   end

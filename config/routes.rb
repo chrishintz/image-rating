@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get   "/sign-up",                 to: "users#index",        as: :sign_up
   post  "/users",                   to: "users#create"
 
-  get   "/log-in",                  to: "sessions#login"
+  get   "/sign-out",                to: "sessions#sign_out",  as: :sign_out
   post  "/sign-in",                 to: "sessions#sign_in",   as: :sign_in
 
   get   "/",                        to: "photos#index",       as: :home

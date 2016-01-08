@@ -13,11 +13,28 @@
       <%= image_tag "keyboard_keys.jpg" %>
     </div>
     <ul id="navigation" class="unordered-list-header" >
-      <li class="list-header"><a href="/" class="on">Home</a></li>
-      <li class="list-header"><a href="#" class="anchor-header">Random Photo</a></li>
-      <li class="list-header"><a href="/add-photo" class="anchor-header">Add Photo</a></li>
-      <li class="list-header"><a href="/sign-up" class="anchor-header">Sign-Up/In</a></li>
+      <% if !@current_user %>
+        <li class="list-header"><a href="/" class="on">Home</a></li>
+        <li class="list-header"><a href="#" class="anchor-header">Random Photo</a></li>
+        <li class="list-header"><a href="/sign-up" class="anchor-header">Sign-Up/In</a></li>
+      <% end %>
+      <% if @current_user %>
+        <li class="list-header"><a href="/" class="on">Home</a></li>
+        <li class="list-header"><a href="#" class="anchor-header">Random Photo</a></li>
+        <li class="list-header"><a href="/add-photo" class="anchor-header">Add Photo</a></li>
+        <li class="list-header"><a href="#" class="anchor-header"> <%= "Hi, #{@current_user.username}" %></a></li>
+        <li class="list-header"><a href="/sign-out" class="anchor-header">Log-Out</a></li>
+      <% end %>
     </ul>
+
+  <% if flash.any? %>
+    <div>
+      <%= flash[:notice] %>
+      <%= flash[:success] %>
+      <%= flash[:warning] %>
+      <%= flash.now[:alert] %>
+    </div>
+  <% end %>
 
 <%= yield %>
 
