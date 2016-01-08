@@ -17,8 +17,8 @@
     <%= file_field_tag "photo[photo_url]" %>
   </div>
   <div class="field-wrap">
-    <label>Description (optional)</label>
-    <%= text_area_tag "photo[description]" %>
+    <!-- <label>Description (optional)</label> -->
+    <%= text_area_tag 'description', nil, placeholder: 'Description (optional)' %>
   </div>
   <%= submit_tag "Upload", class:"button button-block"%>
   <% end %>

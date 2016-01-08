@@ -13,31 +13,19 @@
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 
             <div class="field-wrap">
-              <label>
-                Username<span class="req">*</span>
-              </label>
-              <input type="text" name="user[username]" />
+              <input type="text" name="user[username]" placeholder="Username" />
             </div>
 
             <div class="field-wrap">
-              <label>
-                Email Address<span class="req">*</span>
-              </label>
-              <input type="email" name="user[email]"/>
+              <input type="email" name="user[email]" placeholder="Email Address"/>
             </div>
 
             <div class="field-wrap">
-              <label>
-                Set A Password<span class="req">*</span>
-              </label>
-              <input type="password" name="user[password]"/>
+              <input type="password" name="user[password]" placeholder="Set A Password"/>
             </div>
 
             <div class="field-wrap">
-              <label>
-                Confirm Password<span class="req">*</span>
-              </label>
-              <input type="password" name="user[password_confirmation]"/>
+              <input type="password" name="user[password_confirmation]" placeholder="Confirm Password"/>
             </div>
 
             <button type="submit" class="button button-block"/>Get Started</button>
