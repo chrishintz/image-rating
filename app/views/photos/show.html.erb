@@ -1,6 +1,6 @@
 <% @photos.each do |pic| %>
   <div class="picture">
-    <%= link_to image_tag("#{pic.photo_url}", size: "320x320") %>
+    <%= link_to image_tag("#{pic.photo_url.url(:square)}") %>
   </div>
   <div class="caption">
     <p> <%= pic.description %></p>

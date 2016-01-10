@@ -20,6 +20,7 @@ class PhotosController < ApplicationController
 
   def show
     @photos = Photo.all
+    @photo  = Photo.new
   end
 
 private
