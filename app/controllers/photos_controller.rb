@@ -13,7 +13,7 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @photo.user_id = @current_user.id
     if @photo.save
-      redirect_to show_photos_path
+      redirect_to single_photo_path(@photo.id)
     else
       render "add_a_photo"
     end
@@ -22,6 +22,11 @@ class PhotosController < ApplicationController
   def show
     @photos = Photo.all
     @photo  = Photo.new
+  end
+
+  def single_photo
+    @photo = Photo.find(params[:id])
+    @users = User.all
   end
 
 private

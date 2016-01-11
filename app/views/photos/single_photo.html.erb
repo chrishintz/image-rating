@@ -1,0 +1,7 @@
+<div class="single-photo">
+  <%= image_tag("#{@photo.photo_url.url(:square)}") %>
+  <div class="caption">
+    <%= @photo.user.username %>
+    <%= @photo.description %>
+  </div>
+</div>

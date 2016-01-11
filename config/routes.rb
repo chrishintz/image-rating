@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-  get   "/sign-up",                 to: "users#index",        as: :sign_up
+  get   "/sign-up",                 to: "users#index",         as: :sign_up
   post  "/users",                   to: "users#create"
 
-  get   "/sign-out",                to: "sessions#sign_out",  as: :sign_out
-  post  "/sign-in",                 to: "sessions#sign_in",   as: :sign_in
+  get   "/sign-out",                to: "sessions#sign_out",   as: :sign_out
+  post  "/sign-in",                 to: "sessions#sign_in",    as: :sign_in
 
-  get   "/",                        to: "photos#index",       as: :home
-  post  "/new-photo",               to: "photos#new",         as: :photos
-  get   "/add-photo",               to: "photos#add_a_photo", as: :add_a_photo
-  get   "/photos",                  to: "photos#show",        as: :show_photos
+  get   "/",                        to: "photos#index",        as: :home
+  post  "/new-photo",               to: "photos#new",          as: :photos
+  get   "/add-photo",               to: "photos#add_a_photo",  as: :add_a_photo
+  get   "/photos",                  to: "photos#show",         as: :show_photos
+  get   "/photos/:id",              to: "photos#single_photo", as: :single_photo
 
 
   # The priority is based upon order of creation: first created -> highest priority.
