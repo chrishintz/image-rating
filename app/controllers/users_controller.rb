@@ -15,4 +15,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def user_photos
+    @user   = User.find(session[:user_id])
+    @photos = Photo.all
+  end
+
 end

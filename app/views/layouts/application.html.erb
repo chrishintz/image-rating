@@ -22,7 +22,8 @@
         <li class="list-header"><a href="/" class="on">Home</a></li>
         <li class="list-header"><a href="#" class="anchor-header">Random Photo</a></li>
         <li class="list-header"><a href="/add-photo" class="anchor-header">Add Photo</a></li>
-        <li class="list-header"><a href="#" class="anchor-header"> <%= "Hi, #{@current_user.username}" %></a></li>
+        <li class="list-header"><a href="/user-photos" class="anchor-header">
+          <%= "Hi, #{@current_user.username}" %></a></li>
         <li class="list-header"><a href="/sign-out" class="anchor-header">Log-Out</a></li>
       <% end %>
     </ul>

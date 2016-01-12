@@ -3,5 +3,24 @@
   <div class="caption">
     <%= @photo.user.username %>
     <%= @photo.description %>
+    <%= form_tag("/photos/rating/#{@photo.id}", method: "Post") do %>
+      <%= image_submit_tag("https://s3-us-west-2.amazonaws.com/image-rating-hintz/Good", value: "good") %>
+      <%= image_submit_tag("https://s3-us-west-2.amazonaws.com/image-rating-hintz/Meh", value: "meh") %>
+      <%= image_submit_tag("https://s3-us-west-2.amazonaws.com/image-rating-hintz/Bad", value: "bad") %>
+      <%= text_area_tag :comment %>
+      <%= submit_tag("Submit") %>
+
+      <% if @rating %>
+        <% if @rating.errors.any? %>
+          <% @rating.errors.each do |column, message| %>
+            <ul>
+              <li>
+                <%= column.capitalize %> : <%= message %>
+              </li>
+            </ul>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>

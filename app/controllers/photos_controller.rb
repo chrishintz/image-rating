@@ -26,7 +26,6 @@ class PhotosController < ApplicationController
 
   def single_photo
     @photo = Photo.find(params[:id])
-    @users = User.all
   end
 
 private
