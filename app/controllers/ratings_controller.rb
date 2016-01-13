@@ -11,7 +11,7 @@ class RatingsController < ApplicationController
       @rating.rating = 1
     end
     @rating.comment  = params[:comment]
-    @rating.photo_id = @photo.id
+    @rating.photo_id = params[:id]
     @rating.user_id  = @current_user.id
     if @rating.save
       redirect_to home_path

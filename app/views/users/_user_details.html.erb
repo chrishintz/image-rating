@@ -1,6 +1,7 @@
 <div class="gravatar">
   <%= gravatar_for "#{@user.email}" %>
-  <%= @user.email %>
+  <%= "e-mail address: #{@user.email}" %>
+  <button>update email address</button>
 </div>
 
 <% @user.photos.each do |p| %>

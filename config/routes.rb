@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get    "/photos",                  to: "photos#show",         as: :show_photos
   get    "/photos/:id",              to: "photos#single_photo", as: :single_photo
   delete "/photos/:id",              to: "photos#delete",       as: :delete_photo
+  get    "/random-photo",            to: "photos#random",       as: :random_photo      
 
   post   "/photos/rating/:id",       to: "ratings#create",      as: :rating
 

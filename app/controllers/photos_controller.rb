@@ -34,6 +34,10 @@ class PhotosController < ApplicationController
     redirect_to root_path
   end
 
+  def random
+    @photos = Photo.all  
+  end
+
 private
 
   def photo_params

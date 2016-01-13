@@ -3,24 +3,22 @@
 <head>
   <title>Image Rating</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body class="header-body">
 
   <div id="page">
     <div id="logo">
-      <%= image_tag "keyboard_keys.jpg" %>
+      <%= link_to image_tag('keyboard_keys.jpg'), home_path %>
     </div>
     <ul id="navigation" class="unordered-list-header" >
       <% if !@current_user %>
-        <li class="list-header"><a href="/" class="on">Home</a></li>
-        <li class="list-header"><a href="#" class="anchor-header">Review Photos</a></li>
+        <li class="list-header"><a href="/random-photo" class="anchor-header">Review Photos</a></li>
         <li class="list-header"><a href="/sign-up" class="anchor-header">Sign-Up/In</a></li>
       <% end %>
       <% if @current_user %>
-        <li class="list-header"><a href="/" class="on">Home</a></li>
-        <li class="list-header"><a href="#" class="anchor-header">Review Photos</a></li>
+        <li class="list-header"><a href="/random-photo" class="anchor-header">Review Photos</a></li>
         <li class="list-header"><a href="/add-photo" class="anchor-header">Add Photo</a></li>
         <li class="list-header"><a href="/user-photos" class="anchor-header">
           <%= "Hi, #{@current_user.username}" %></a></li>
