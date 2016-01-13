@@ -6,12 +6,14 @@
 }
 
 #page {
-  max-width: 940px;
+  // max-width: 960px;
+  @include outer-container;
   min-width: 720px;
   margin: 10px auto 10px auto;
   padding: 20px;
   border: 4px double #000;
   background-color: #ffffff;
+  text-align: center;
 }
 
 #logo {
@@ -331,4 +333,13 @@ figcaption {
   position:relative;
   margin-bottom:40px;
   clear:left;
+}
+
+.all-photos {
+  @include span-columns(4);
+  @include omega(3n);
+}
+
+.all-photos img {
+  width: 100%;
 }

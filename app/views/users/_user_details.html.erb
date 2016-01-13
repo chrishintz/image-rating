@@ -1,6 +1,6 @@
-<div>
-  <% @user.photos.each do |p| %>
-    <a href="/photo/<%= p.id %>"><%= image_tag"#{p.photo_url.url(:square)}"%></a>
+<% @user.photos.each do |p| %>
+  <div class="all-photos">
+    <a href="/photos/<%= p.id %>"><%= image_tag"#{p.photo_url.url(:preview)}"%></a>
     <%= p.description %>
-  <% end %>
-</div>
+  </div>
+<% end %>

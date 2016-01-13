@@ -2,6 +2,7 @@
   <div class="photo-group">
     <div class="picture-caption">
       <%= image_tag("#{@photo.photo_url.url(:square)}") %>
+      <%= gravatar_for "#{@photo.user.email}" %>
       <figcaption>By:<%= @photo.user.username %> <%= @photo.description %> </figcaption>
       <div class="rating-group">
         <div class="rating-header">
