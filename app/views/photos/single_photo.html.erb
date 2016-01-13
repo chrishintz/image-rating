@@ -1,24 +1,47 @@
 <div class="single-photo">
-  <%= image_tag("#{@photo.photo_url.url(:square)}") %>
-  <div class="caption">
-    <%= @photo.user.username %>
-    <%= @photo.description %>
-    <%= form_tag("/photos/rating/#{@photo.id}", method: "Post") do %>
-      <%= image_submit_tag("https://s3-us-west-2.amazonaws.com/image-rating-hintz/Good", value: "good") %>
-      <%= image_submit_tag("https://s3-us-west-2.amazonaws.com/image-rating-hintz/Meh", value: "meh") %>
-      <%= image_submit_tag("https://s3-us-west-2.amazonaws.com/image-rating-hintz/Bad", value: "bad") %>
-      <%= text_area_tag :comment %>
-      <%= submit_tag("Submit") %>
+  <div class="photo-group">
+    <div class="picture-caption">
+      <%= image_tag("#{@photo.photo_url.url(:square)}") %>
+      <figcaption>By:<%= @photo.user.username %> <%= @photo.description %> </figcaption>
+      <div class="rating-group">
+        <div class="rating-header">
+          <h2>Rate this Photo!</h2>
+        </div>
+      <div class="rating-faces">
+        <form action="<%="/photos/rating/#{@photo.id}" %>" method="POST">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+          <div class="rating-picker">
+            <div class="single-face">
+              <input id="good" type="radio" name="rating" value="good" />
+              <label class="drinkcard good" for="good"></label>
+            </div>
+            <div class="single-face">
+              <input id="meh" type="radio" name="rating" value="meh" />
+              <label class="drinkcard meh" for="meh"></label>
+            </div>
+            <div class="single-face">
+              <input id="bad" type="radio" name="rating" value="bad" />
+              <label class="drinkcard bad" for="bad"></label>
+            </div>
+          </div>
+          <div class="comment-box">
+            <h3>Comment (optional)</h3>
+            <textarea name="comment" class="comment"></textarea>
+          </div>
+          <button type="submit" class="button button-block"/>Rating Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
-      <% if @rating %>
-        <% if @rating.errors.any? %>
-          <% @rating.errors.each do |column, message| %>
-            <ul>
-              <li>
-                <%= column.capitalize %> : <%= message %>
-              </li>
-            </ul>
-          <% end %>
+    <% if @rating %>
+      <% if @rating.errors.any? %>
+        <% @rating.errors.each do |column, message| %>
+          <ul>
+            <li>
+              <%= column.capitalize %> : <%= message %>
+            </li>
+          </ul>
         <% end %>
       <% end %>
     <% end %>

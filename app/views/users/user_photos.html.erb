@@ -1,10 +1,1 @@
-<% if @current_user %>
-  <% if @current_user == @user.id %>
-    <%= render 'user_details' %>
-  <% end %>
-<% end %>
-
-<div class="caption">
-  <%= @user.username %>
-  <!-- <%= @user.photos.description %> -->
-</div>
+<%= render "user_details" %>

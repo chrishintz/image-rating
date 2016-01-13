@@ -1,0 +1,6 @@
+<div>
+  <% @user.photos.each do |p| %>
+    <a href="/photo/<%= p.id %>"><%= image_tag"#{p.photo_url.url(:square)}"%></a>
+    <%= p.description %>
+  <% end %>
+</div>

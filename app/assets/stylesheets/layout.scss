@@ -1,5 +1,5 @@
 .header-body {
-  font-size: 78%;
+  font-size: 75%;
   font-family: "Courier New", Courier, monospace;
   letter-spacing: 0.10em;
   background-color: #efefef;
@@ -232,4 +232,103 @@ textarea {
 
 .picture {
   width: 50%;
+}
+
+.single-face {
+  float:left;
+  margin: 0 5px;
+}
+
+input {
+  margin:0;padding:0;
+  -webkit-appearance:none;
+     -moz-appearance:none;
+          appearance:none;
+}
+
+.good {
+  background-image: url("https://s3-us-west-2.amazonaws.com/image-rating-hintz/Good");
+  width: 100px;
+  height: 100px;
+}
+
+.meh {
+  background-image: url("https://s3-us-west-2.amazonaws.com/image-rating-hintz/Meh");
+  width: 100px;
+  height: 100px;
+}
+
+.bad {
+  background-image: url("https://s3-us-west-2.amazonaws.com/image-rating-hintz/Bad");
+  width: 100px;
+  height: 100px;
+}
+
+input:active + .drinkcard {
+  opacity: .9;
+}
+
+input:checked + .drinkcard {
+  -webkit-filter: none;
+   -moz-filter: none;
+        filter: none;
+}
+
+.drinkcard {
+  cursor: pointer;
+  background-size:contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  -webkit-transition: all 100ms ease-in;
+   -moz-transition: all 100ms ease-in;
+        transition: all 100ms ease-in;
+  -webkit-filter: brightness(1.2) grayscale(.6) opacity(.8);
+   -moz-filter: brightness(1.2) grayscale(.6) opacity(.8);
+        filter: brightness(1.2) grayscale(.6) opacity(.8);
+}
+
+.drinkcard:hover {
+  -webkit-filter: brightness(1.2) grayscale(.6) opacity(.9);
+   -moz-filter: brightness(1.2) grayscale(.6) opacity(.9);
+        filter: brightness(1.2) grayscale(.6) opacity(.9);
+}
+
+.comment {
+  color: black;
+  text-align: left;
+}
+
+.single-photo {
+  width: 100%;
+  text-align: center;
+}
+
+.photo-group {
+  display: inline-block;
+}
+
+.rating-header {
+  margin-top: 40px;
+}
+
+.picture-caption {
+  float: left;
+  padding: 5px;
+  margin: 20px;
+  border: 1px solid #eeeeee;
+}
+
+figcaption {
+  font-size: 90%;
+  text-align: left;
+}
+
+.rating-group {
+  display: inline-block;
+}
+
+.comment-box {
+  position:relative;
+  margin-bottom:40px;
+  clear:left;
 }

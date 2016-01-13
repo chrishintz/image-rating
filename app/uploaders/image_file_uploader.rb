@@ -14,7 +14,7 @@ class ImageFileUploader < CarrierWave::Uploader::Base
   end
 
   version :square do
-    process :resize_to_fit => [256, 256]
+    process :resize_to_fit => [384, 384]
   end
 
 end
