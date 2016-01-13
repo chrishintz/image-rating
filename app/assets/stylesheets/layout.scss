@@ -343,3 +343,7 @@ figcaption {
 .all-photos img {
   width: 100%;
 }
+
+.delete-button {
+  @include button(pill);
+}

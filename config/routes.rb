@@ -1,18 +1,19 @@
 Rails.application.routes.draw do
-  get   "/sign-up",                 to: "users#index",         as: :sign_up
-  post  "/users",                   to: "users#create"
-  get   "/user-photos",             to: "users#user_photos",   as: :user_photos
+  get    "/sign-up",                 to: "users#index",         as: :sign_up
+  post   "/users",                   to: "users#create"
+  get    "/user-photos",             to: "users#user_photos",   as: :user_photos
 
-  get   "/sign-out",                to: "sessions#sign_out",   as: :sign_out
-  post  "/sign-in",                 to: "sessions#sign_in",    as: :sign_in
+  get    "/sign-out",                to: "sessions#sign_out",   as: :sign_out
+  post   "/sign-in",                 to: "sessions#sign_in",    as: :sign_in
 
-  get   "/",                        to: "photos#index",        as: :home
-  post  "/new-photo",               to: "photos#new",          as: :photos
-  get   "/add-photo",               to: "photos#add_a_photo",  as: :add_a_photo
-  get   "/photos",                  to: "photos#show",         as: :show_photos
-  get   "/photos/:id",              to: "photos#single_photo", as: :single_photo
+  get    "/",                        to: "photos#index",        as: :home
+  post   "/new-photo",               to: "photos#new",          as: :photos
+  get    "/add-photo",               to: "photos#add_a_photo",  as: :add_a_photo
+  get    "/photos",                  to: "photos#show",         as: :show_photos
+  get    "/photos/:id",              to: "photos#single_photo", as: :single_photo
+  delete "/photos/:id",              to: "photos#delete",       as: :delete_photo
 
-  post  "/photos/rating/:id",       to: "ratings#create",      as: :rating
+  post   "/photos/rating/:id",       to: "ratings#create",      as: :rating
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

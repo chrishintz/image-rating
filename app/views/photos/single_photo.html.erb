@@ -2,35 +2,47 @@
   <div class="photo-group">
     <div class="picture-caption">
       <%= image_tag("#{@photo.photo_url.url(:square)}") %>
-      <%= gravatar_for "#{@photo.user.email}" %>
       <figcaption>By:<%= @photo.user.username %> <%= @photo.description %> </figcaption>
-      <div class="rating-group">
-        <div class="rating-header">
-          <h2>Rate this Photo!</h2>
-        </div>
-      <div class="rating-faces">
-        <form action="<%="/photos/rating/#{@photo.id}" %>" method="POST">
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-          <div class="rating-picker">
-            <div class="single-face">
-              <input id="good" type="radio" name="rating" value="good" />
-              <label class="drinkcard good" for="good"></label>
+      <% if @current_user %>
+        <% if @current_user.id != @photo.user.id %>
+          <div class="rating-group">
+            <div class="rating-header">
+              <h2>Rate this Photo!</h2>
             </div>
-            <div class="single-face">
-              <input id="meh" type="radio" name="rating" value="meh" />
-              <label class="drinkcard meh" for="meh"></label>
-            </div>
-            <div class="single-face">
-              <input id="bad" type="radio" name="rating" value="bad" />
-              <label class="drinkcard bad" for="bad"></label>
-            </div>
-          </div>
-          <div class="comment-box">
-            <h3>Comment (optional)</h3>
-            <textarea name="comment" class="comment"></textarea>
-          </div>
-          <button type="submit" class="button button-block"/>Rating Submit</button>
-        </form>
+          <div class="rating-faces">
+            <form action="<%="/photos/rating/#{@photo.id}" %>" method="POST">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+              <div class="rating-picker">
+                <div class="single-face">
+                  <input id="good" type="radio" name="rating" value="good" />
+                  <label class="drinkcard good" for="good"></label>
+                </div>
+                <div class="single-face">
+                  <input id="meh" type="radio" name="rating" value="meh" />
+                  <label class="drinkcard meh" for="meh"></label>
+                </div>
+                <div class="single-face">
+                  <input id="bad" type="radio" name="rating" value="bad" />
+                  <label class="drinkcard bad" for="bad"></label>
+                </div>
+              </div>
+              <div class="comment-box">
+                <h3>Comment (optional)</h3>
+                <textarea name="comment" class="comment"></textarea>
+              </div>
+              <button type="submit" class="button button-block"/>Rating Submit</button>
+            </form>
+          <% end %>
+        <% end %>
+        <% if @current_user %>
+          <% if @current_user.id == @photo.user.id %>
+            <form action="/photos/<%= @photo.id %>" method="POST">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" class="delete-button" value="delete">
+            </form>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

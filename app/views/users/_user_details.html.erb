@@ -1,3 +1,8 @@
+<div class="gravatar">
+  <%= gravatar_for "#{@user.email}" %>
+  <%= @user.email %>
+</div>
+
 <% @user.photos.each do |p| %>
   <div class="all-photos">
     <a href="/photos/<%= p.id %>"><%= image_tag"#{p.photo_url.url(:preview)}"%></a>
