@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(params.require(:user).permit(:username, :email, :password, :password_confirmation))
     if @user.save
       session[:user_id] = @user.id
+      ClubMailer.subscribe(@user.id).deliver_now
       redirect_to home_path, notice: "Welcome, thanks for signing up!"
     else
       flash.now.alert = "Username or Email is already taken"
