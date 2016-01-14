@@ -25,7 +25,8 @@ class PhotosController < ApplicationController
   end
 
   def single_photo
-    @photo = Photo.find(params[:id])
+    @photo  = Photo.find(params[:id])
+    @photos = Photo.all
   end
 
   def delete
@@ -35,7 +36,7 @@ class PhotosController < ApplicationController
   end
 
   def random
-    @photos = Photo.all  
+    @photos = Photo.all
   end
 
 private

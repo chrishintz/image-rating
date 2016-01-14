@@ -2,7 +2,10 @@
   <div class="photo-group">
     <div class="picture-caption">
       <%= image_tag("#{@photo.photo_url.url(:square)}") %>
-      <figcaption>By:<%= @photo.user.username %> <%= @photo.description %> </figcaption>
+      <div class="gravatar-image">
+        <%= gravatar_for("#{@photo.user.email}")%> By:<%= @photo.user.username %>
+      </div>
+      <figcaption><strong><em><%= @photo.description %></em></strong></figcaption>
       <% if @current_user %>
         <% if @current_user.id != @photo.user.id %>
           <div class="rating-group">
