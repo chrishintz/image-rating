@@ -1,7 +1,7 @@
 <div class="gravatar">
   <%= gravatar_for "#{@user.email}" %>
 </div>
-<div>
+<div class="email-line">
   <%= "e-mail address: #{@user.email}" %>
   <button class="delete-button"><a href="/users/edit/<%= @user.id %>">update email address</a></button>
 </div>
