@@ -14,6 +14,7 @@ class RatingsController < ApplicationController
     @rating.photo_id = params[:id]
     @rating.user_id  = @current_user.id
     if @rating.save
+      ClubMailer.rating_email(Photo.find(@rating.photo_id).user_id).deliver_now
       redirect_to home_path
     else
       @photo = Photo.find(params[:photo_id])
