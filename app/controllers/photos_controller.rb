@@ -32,7 +32,7 @@ class PhotosController < ApplicationController
   def delete
     @photo = Photo.find(params[:id])
     @photo.destroy
-    redirect_to root_path
+    redirect_to home_path
   end
 
   def random
