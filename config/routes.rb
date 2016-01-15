@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get    "/sign-out",                to: "sessions#sign_out",     as: :sign_out
   post   "/sign-in",                 to: "sessions#sign_in",      as: :sign_in
 
+  post   "/photos/rating/:id",       to: "ratings#create",        as: :rating
+  get    "/photos/rating",           to: "ratings#review_images", as: :review_images
+
   get    "/",                        to: "photos#index",          as: :home
   post   "/new-photo",               to: "photos#new",            as: :photos
   get    "/add-photo",               to: "photos#add_a_photo",    as: :add_a_photo
@@ -17,8 +20,6 @@ Rails.application.routes.draw do
   delete "/photos/:id",              to: "photos#delete",         as: :delete_photo
   get    "/random-photo",            to: "photos#random",         as: :random_photo
 
-  post   "/photos/rating/:id",       to: "ratings#create",        as: :rating
-  get    "/photos/rating/:id",       to: "ratings#review_images", as: :review_images
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

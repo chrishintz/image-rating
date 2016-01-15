@@ -14,11 +14,11 @@
     </div>
     <ul id="navigation" class="unordered-list-header" >
       <% if !@current_user %>
-        <li class="list-header"><a href="/random-photo" class="anchor-header">Review Photos</a></li>
+        <li class="list-header"><a href="/photos/rating/:id" class="anchor-header">Review Photos</a></li>
         <li class="list-header"><a href="/sign-up" class="anchor-header">Sign-Up/In</a></li>
       <% end %>
       <% if @current_user %>
-        <li class="list-header"><a href="/random-photo" class="anchor-header">Review Photos</a></li>
+        <li class="list-header"><a href="/photos/rating" class="anchor-header">Review Photos</a></li>
         <li class="list-header"><a href="/add-photo" class="anchor-header">Add Photo</a></li>
         <li class="list-header"><a href="/user-photos" class="anchor-header">
           <%= "Hi, #{@current_user.username}" %></a></li>
