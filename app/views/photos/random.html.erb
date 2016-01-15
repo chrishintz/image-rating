@@ -1,7 +1,49 @@
-<% @photos.each do |p| %>
-  <div class="all-photos">
-    <a href="/photos/<%= p.id %>"><%= image_tag"#{p.photo_url.url(:preview)}"%></a>
-    <p>photo by: <%= p.user.username %></p>
-    <strong><em><%= p.description %></em></strong>
+
+<div>
+  <% if @photo == nil %>
+    <h2><%= "You have reviewed all images.  Invite your friends to join and upload more images to review!" %></h2>
+  <% else %>
+</div>
+
+<h1><em>Here's a Photo you haven't yet rated!</em></h1>
+  <div class="single-photo">
+    <div class="photo-group">
+      <div class="picture-caption">
+        <%= image_tag("#{@photo.photo_url.url(:square)}") %>
+        <div class="gravatar-image">
+          <%= gravatar_for("#{@photo.user.email}")%> By:<%= @photo.user.username %>
+        </div>
+        <figcaption><strong><em><%= @photo.description %></em></strong></figcaption>
+        <div class="rating-group">
+          <div class="rating-header">
+            <h2>Rate this Photo!</h2>
+          </div>
+        <div class="rating-faces">
+          <form action="<%="/photos/rating/#{@photo.id}" %>" method="POST">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+            <div class="rating-picker">
+              <div class="single-face">
+                <input id="good" type="radio" name="rating" value="good" />
+                <label class="drinkcard good" for="good"></label>
+              </div>
+              <div class="single-face">
+                <input id="meh" type="radio" name="rating" value="meh" />
+                <label class="drinkcard meh" for="meh"></label>
+              </div>
+              <div class="single-face">
+                <input id="bad" type="radio" name="rating" value="bad" />
+                <label class="drinkcard bad" for="bad"></label>
+              </div>
+            </div>
+            <div class="comment-box">
+              <h3>Comment (optional)</h3>
+              <textarea name="comment" class="comment"></textarea>
+            </div>
+            <button type="submit" class="button button-block"/>Rating Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
+  <% end %>

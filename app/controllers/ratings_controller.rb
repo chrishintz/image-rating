@@ -21,4 +21,12 @@ class RatingsController < ApplicationController
       render "/photos/show"
     end
   end
+
+  def review_images
+    reviewed = Photo.joins(:ratings).where(["ratings.user_id = ?", current_user.id])
+    other_user_pictures = Photo.all.where.not(user_id: current_user.id)
+    unreviewed = other_user_pictures - reviewed
+    @photo = unreviewed.shuffle.first
+  end
+
 end
