@@ -337,7 +337,7 @@ figcaption {
 }
 
 .all-photos {
-  @include span-columns(2);
+  @include span-columns(12);
   @include omega(2n);
 }
 
