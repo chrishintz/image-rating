@@ -16,6 +16,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(session[:user_id])
+  end
+
+  def update
+    @user = User.find(session[:user_id])
+    @user.username = params[:user][:username]
+    @user.email = params[:user][:email]
+    @user.save
+    redirect_to user_photos_path
+  end
+
   def user_photos
     @user   = User.find(session[:user_id])
     @photos = Photo.all

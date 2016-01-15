@@ -1,6 +1,7 @@
 <% @photos.each do |p| %>
   <div class="all-photos">
     <a href="/photos/<%= p.id %>"><%= image_tag"#{p.photo_url.url(:preview)}"%></a>
-    <%= p.description %>
+    <p>photo by: <%= p.user.username %></p>
+    <strong><em><%= p.description %></em></strong>
   </div>
 <% end %>
