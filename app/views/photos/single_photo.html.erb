@@ -1,7 +1,7 @@
 <div class="single-photo">
   <div class="photo-group">
     <div class="picture-caption">
-      <%= image_tag("#{@photo.photo_url.url(:square)}") %>
+      <%= image_tag("#{@photo.photo_url.url(:full)}") %>
       <div class="gravatar-image">
         <%= gravatar_for("#{@photo.user.email}")%> By:<%= @photo.user.username %>
       </div>
