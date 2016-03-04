@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: image_rating_production
-  username: image_rating
+  username: chris
   password: <%= ENV['IMAGE_RATING_DATABASE_PASSWORD'] %>
