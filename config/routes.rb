@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get    "/sign-out",                to: "sessions#sign_out",     as: :sign_out
   post   "/sign-in",                 to: "sessions#sign_in",      as: :sign_in
 
-  post   "/photos/rating/:id",       to: "ratings#create",        as: :rating
+  get   "/photos/rating/:id",       to: "ratings#create",        as: :rating
   get    "/photos/rating",           to: "ratings#review_images", as: :review_images
 
   get    "/",                        to: "photos#index",          as: :home
